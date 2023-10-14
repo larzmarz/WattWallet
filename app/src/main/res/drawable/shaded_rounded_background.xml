@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- res/drawable/shaded_rounded_background.xml -->
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Bottom layer: The shaded background -->
+        <item>
+            <shape>
+                <solid android:color="#000000" /> <!-- Adjust the shading color as needed -->
+                <corners android:radius="16dp" /> <!-- Adjust the radius to match your rounded background -->
+            </shape>
+        </item>
+        <!-- Top layer: The rounded background -->
+        <item android:top="8dp"> <!-- Adjust the top value to control the shading height -->
+            <shape>
+                <solid android:color="#FFFFFF" /> <!-- Background color -->
+                <corners android:radius="16dp" /> <!-- Adjust the radius to match your rounded background -->
+            </shape>
+        </item>
+    </layer-list>
+</selector>
