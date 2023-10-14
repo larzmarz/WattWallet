@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">7jsHxJwozS0aCSYv8J88VLlSVt88KuMmIKWpi3ua</string>
+    <string name="back4app_client_key">5Lp7vcjqZDF7wS6OEERL9FEyKHb7waa2D3I3RMQW</string>
+
 </resources>
