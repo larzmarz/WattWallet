@@ -17,6 +17,12 @@
         android:theme="@style/Theme.WattWallet"
         tools:targetApi="34">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
