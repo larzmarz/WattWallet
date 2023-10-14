@@ -30,11 +30,13 @@
         android:id="@+id/imageView2"
         android:layout_width="314dp"
         android:layout_height="256dp"
+        android:layout_marginTop="308dp"
         android:background="@drawable/ic_drawable_login"
         android:radius="50dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="272dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btSignup"
