@@ -17,12 +17,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     private List<String> mOdd;
     private List<String> mEven;
+    private List<String> kWE;
+    private List<String> kWO;
+
     private LayoutInflater mInflater;
 
-    public CardAdapter(Context context, List<String> odd, List<String> even) {
+    public CardAdapter(Context context, List<String> oddData, List<String> evenData, List<String> kwO, List<String> kwE) {
         this.mInflater = LayoutInflater.from(context);
-        this.mOdd = odd;
-        this.mEven = even;
+        this.mOdd = oddData;
+        this.mEven = evenData;
+        this.kWO = kwO;
+        this.kWE = kwE;
     }
 
     @NonNull
@@ -34,26 +39,34 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String oddText = position < mOdd.size() ? mOdd.get(position) : ""; // Check bounds
-        String evenText = position < mEven.size() ? mEven.get(position) : ""; // Check bounds
+        String oddText = position < mOdd.size() ? mOdd.get(position) : ""; // Check bounds for odd week
+        String evenText = position < mEven.size() ? mEven.get(position) : ""; // Check bounds for even week
+        String kwOText = position < kWO.size() ? kWO.get(position) : ""; // Check bounds for odd kW
+        String kwEText = position < kWE.size() ? kWE.get(position) : ""; // Check bounds for even kW
+
         holder.tvweeknumber.setText(oddText);
         holder.tvweeknumber2.setText(evenText);
+        holder.tvKwUse.setText(kwOText);
+        holder.tvKwUse2.setText(kwEText);
     }
 
     @Override
     public int getItemCount() {
-        return Math.max(mOdd.size(), mEven.size());
+        return Math.max(mOdd.size(), mEven.size()); // Ensuring it takes the larger list size
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView cardText;
         TextView tvweeknumber;
         TextView tvweeknumber2;
+        TextView tvKwUse;
+        TextView tvKwUse2;
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvweeknumber = itemView.findViewById(R.id.tvweeknumber); // Assuming this ID for the odd weeks
-            tvweeknumber2 = itemView.findViewById(R.id.tvweeknumber2); // Assuming this ID for the even weeks
+            tvweeknumber = itemView.findViewById(R.id.tvweeknumber);
+            tvweeknumber2 = itemView.findViewById(R.id.tvweeknumber2);
+            tvKwUse = itemView.findViewById(R.id.tvKwUse);
+            tvKwUse2 = itemView.findViewById(R.id.tvKwUse2);
         }
     }
 }
