@@ -7,19 +7,27 @@
         <entry key="app/src/main/res/drawable/ic_baseline_highlight_24.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/ic_carbon_card.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_input_background.xml" value="0.263" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26" />
+        <entry key="app/src/main/res/drawable/ic_login_background.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_login_button.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_main_background.xml" value="0.263" />
+        <entry key="app/src/main/res/drawable/ic_sign_up_button.xml" value="0.263" />
         <entry key="app/src/main/res/drawable/shaded_rounded_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20271046956380206" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2127283732096354" />
         <entry key="app/src/main/res/layout/activity_opening_page.xml" value="0.3166061401367187" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.3177083333333333" />
         <entry key="app/src/main/res/layout/activity_startup.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/carbon_card.xml" value="0.24203186035156252" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3060123388318049" />
+        <entry key="app/src/main/res/layout/fragment_money.xml" value="0.21014099121093752" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.36541327877321106" />
-        <entry key="app/src/main/res/layout/item_card.xml" value="0.4024240112304686" />
+        <entry key="app/src/main/res/layout/item_card.xml" value="0.6301416015624999" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.3333333333333333" />
       </map>
     </option>
