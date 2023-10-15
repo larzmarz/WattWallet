@@ -43,11 +43,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<String> sampleData = Arrays.asList("Text 1", "Text 2", "Text 3", "Text 4", "Text 5", "Text 6", "Text 7", "Text 8", "Text 9"); // Sample data
+        List<String> oddData = Arrays.asList("Week 1", "Week 3", "Week 5", "Week 7", "Week 9"); // Sample data
+        List<String> evenData = Arrays.asList("Week 2", "Week 4", "Week 6", "Week 8", "Week 10"); // Sample data
+
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapter = new CardAdapter(getContext(), sampleData);
+        adapter = new CardAdapter(getContext(), oddData, evenData);
         recyclerView.setAdapter(adapter);
     }
 

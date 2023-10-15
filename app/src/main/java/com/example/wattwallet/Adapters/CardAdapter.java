@@ -15,12 +15,14 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<String> mOdd;
+    private List<String> mEven;
     private LayoutInflater mInflater;
 
-    public CardAdapter(Context context, List<String> data) {
+    public CardAdapter(Context context, List<String> odd, List<String> even) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.mOdd = odd;
+        this.mEven = even;
     }
 
     @NonNull
@@ -32,21 +34,26 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String text = mData.get(position);
-        holder.cardText.setText(text);
+        String oddText = position < mOdd.size() ? mOdd.get(position) : ""; // Check bounds
+        String evenText = position < mEven.size() ? mEven.get(position) : ""; // Check bounds
+        holder.tvweeknumber.setText(oddText);
+        holder.tvweeknumber2.setText(evenText);
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return Math.max(mOdd.size(), mEven.size());
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView cardText;
+        TextView tvweeknumber;
+        TextView tvweeknumber2;
 
         ViewHolder(View itemView) {
             super(itemView);
-            cardText = itemView.findViewById(R.id.tvBlockchain);
+            tvweeknumber = itemView.findViewById(R.id.tvweeknumber); // Assuming this ID for the odd weeks
+            tvweeknumber2 = itemView.findViewById(R.id.tvweeknumber2); // Assuming this ID for the even weeks
         }
     }
 }
