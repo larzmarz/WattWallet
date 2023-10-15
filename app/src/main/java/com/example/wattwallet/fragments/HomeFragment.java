@@ -2,10 +2,16 @@ package com.example.wattwallet.fragments;
 
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,11 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wattwallet.Adapters.CardAdapter;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.List;
 import com.example.wattwallet.R;
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private RecyclerView recyclerView;
     private CardAdapter adapter;
@@ -44,7 +52,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
     }
 }

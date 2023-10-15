@@ -1,11 +1,20 @@
 package com.example.wattwallet.fragments;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +29,8 @@ import com.example.wattwallet.R;
 import com.example.wattwallet.User;
 import com.parse.ParseUser;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,6 +41,8 @@ public class MoneyFragment extends Fragment {
     View view;
     TextView cardText;
     ImageView imageView;
+    private Button downloadButton;
+
 
 
     @Nullable
@@ -53,5 +66,43 @@ public class MoneyFragment extends Fragment {
         rv_carbon.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         adapter = new CarbonCardAdapter(getContext(), totalIncome, totalWatts, drawableList);
         rv_carbon.setAdapter(adapter);
+        
+        downloadButton = view.findViewById(R.id.btnDownload);
+        downloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                captureAndSaveRecyclerView();
+            }
+        });
     }
+
+    private void captureAndSaveRecyclerView() {
+        Bitmap bitmap = Bitmap.createBitmap(rv_carbon.getWidth(), rv_carbon.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.WHITE);
+        rv_carbon.draw(canvas);
+
+        try {
+            // Use MediaStore to save the bitmap
+            String savedImageURL = MediaStore.Images.Media.insertImage(
+                    getContext().getContentResolver(),
+                    bitmap,
+                    "screenshot" ,
+                    "Screenshot of RecyclerView"
+            );
+
+            // Notify the gallery about the new image so it immediately appears
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            Uri contentUri = Uri.parse(savedImageURL);
+            mediaScanIntent.setData(contentUri);
+            getContext().sendBroadcast(mediaScanIntent);
+
+            Toast.makeText(getContext(), "Saved to gallery!", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "Error occurred!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
