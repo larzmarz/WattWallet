@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.action_money:
-                    default:
                         fragment = getOrCreateFragment(MoneyFragment.class, "MoneyFragment");
+                        break;
+                    default:
+                        fragment = getOrCreateFragment(HomeFragment.class, "HomeFragment");
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

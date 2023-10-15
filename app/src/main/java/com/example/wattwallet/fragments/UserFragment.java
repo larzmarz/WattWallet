@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.wattwallet.R;
 import com.example.wattwallet.User;
 import com.parse.ParseUser;
@@ -84,12 +85,14 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
 
         // Assuming that getProfilePhoto is a field on ParseUser and not an exclusive method of User class
         ParseFile profilePhoto = ((User) user).getProfilePhoto();
-        if (profilePhoto != null){
+        if (profilePhoto != null) {
             Glide.with(getContext())
                     .load(((User) user).getProfilePhoto().getUrl())
-                    .circleCrop().
-                    into(ivProfilePhoto);
-        }else {
+                    .placeholder(R.drawable.ic_launcher_load) // Placeholder while image is loading
+                    .circleCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache the image for better performance
+                    .into(ivProfilePhoto);
+        } else {
             Toast.makeText(getContext(), "Profile Photo does not exist for " + user.getUsername(), Toast.LENGTH_SHORT).show();
         }
         String totalIncome = userInstance.getString(User.KEY_TOTAL_INCOME);
