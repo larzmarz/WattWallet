@@ -5,6 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="55dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:rotation="180"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="55dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="24dp"
+        android:rotation="180"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cvcard"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvcard"
         android:layout_width="138dp"
@@ -26,7 +49,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="36dp"
-                android:layout_marginEnd="37dp"
+                android:layout_marginEnd="45dp"
                 android:layout_marginBottom="66dp"
                 android:text="+00kw"
                 android:textAlignment="center"
@@ -37,10 +60,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvKwUse"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="-51dp"
+                android:layout_marginEnd="26dp"
                 android:layout_marginBottom="30dp"
                 android:text="Dynamic Text"
                 android:textColor="@android:color/white" />
@@ -59,4 +84,59 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="138dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="75dp"
+        app:cardBackgroundColor="#C5D5C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvweeknumber2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="9dp"
+                android:text="Week"
+                android:textColor="#455A64"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBlockchain2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="30dp"
+                android:text="Dynamic Text"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvKwUse2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="66dp"
+                android:text="+00kw"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

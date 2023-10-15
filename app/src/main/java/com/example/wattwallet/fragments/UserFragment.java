@@ -82,10 +82,13 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvUsername.setText(user.getUsername());
 
         // Assuming that getProfilePhoto is a field on ParseUser and not an exclusive method of User class
-        ParseFile profilePhoto = user.getParseFile("profilePhoto");  // Modify "profilePhoto" if the key is different in your Parse database
-        if (profilePhoto != null) {
-            Glide.with(getContext()).load(profilePhoto.getUrl()).circleCrop().into(ivProfilePhoto);
-        } else {
+        ParseFile profilePhoto = ((User) user).getProfilePhoto();
+        if (profilePhoto != null){
+            Glide.with(getContext())
+                    .load(((User) user).getProfilePhoto().getUrl())
+                    .circleCrop().
+                    into(ivProfilePhoto);
+        }else {
             Toast.makeText(getContext(), "Profile Photo does not exist for " + user.getUsername(), Toast.LENGTH_SHORT).show();
         }
         String totalIncome = userInstance.getString(User.KEY_TOTAL_INCOME);

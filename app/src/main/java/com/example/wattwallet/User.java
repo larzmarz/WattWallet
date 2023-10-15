@@ -8,7 +8,7 @@ import com.parse.ParseUser;
 @ParseClassName("_User")
 
 public class User extends ParseUser {
-    public static final String KEY_PROFILE_PHOTO = "profilePhoto";
+    public static final String KEY_PROFILE_PHOTO = "ProfilePhoto";
     public static final String KEY_TOTAL_WATT = "Total_Watts";
     public static final String KEY_TOTAL_INCOME = "Total_Income";
 
