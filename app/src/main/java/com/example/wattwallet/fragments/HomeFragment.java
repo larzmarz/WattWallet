@@ -69,19 +69,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setupLineChart() {
-        // Example data points
-        List<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(0f, 20f));
-        entries.add(new Entry(1f, 10f));
-        entries.add(new Entry(2f, 15f));
-        entries.add(new Entry(3f, 16f));
-        entries.add(new Entry(4f, 5f));
-        // ... add more entries ...
+        // Your kW values for weeks 1 through 10
+        List<Float> kWValues = Arrays.asList(2f, 20f, 16f, 10f, 8f, 15f, 17f, 16f, 10f, 5f);
 
+        // Create data points using Entry objects
+        List<Entry> entries = new ArrayList<>();
+        for (int i = 0; i < kWValues.size(); i++) {
+            entries.add(new Entry(i, kWValues.get(i))); // Week 1 is 0, Week 2 is 1, and so on...
+        }
+
+        // Create and customize the dataset using the entries
         LineDataSet dataSet = new LineDataSet(entries, "Energy Consumption (kW)");
         dataSet.setColor(Color.BLUE);
         dataSet.setValueTextColor(Color.RED);
 
+        // Set the data on the chart
         LineData lineData = new LineData(dataSet);
         lineChart.setData(lineData);
         lineChart.invalidate();  // refresh the chart

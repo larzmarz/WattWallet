@@ -1,6 +1,8 @@
 package com.example.wattwallet.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.wattwallet.LoginActivity;
 import com.example.wattwallet.R;
 import com.example.wattwallet.User;
 import com.parse.ParseUser;
@@ -34,6 +37,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
     TextView tvIncomeText;
     TextView tvIncome;
     TextView tvPower;
+    Button btLogout;
 
     ParseUser user = ParseUser.getCurrentUser();
 
@@ -63,6 +67,13 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         ivProfilePhoto = view.findViewById(R.id.ivProfilePhoto);
         tvIncome = view.findViewById(R.id.tvIncome);
         tvPower = view.findViewById(R.id.tvPower);
+        btLogout = view.findViewById(R.id.btLogout);
+        btLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser();
+            }
+        });
 
 
         user.fetchInBackground(new GetCallback<ParseObject>() {
@@ -74,6 +85,20 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 } else {
                     // Handle the error
                     Toast.makeText(getContext(), "Error fetching user info: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void logoutUser() {
+        ParseUser.logOutInBackground(new LogOutCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e != null){
+                    Log.e(TAG, "Issue with logout");
+                }else{
+                    Intent i = new Intent(getContext(), LoginActivity.class);
+                    startActivity(i);
                 }
             }
         });
