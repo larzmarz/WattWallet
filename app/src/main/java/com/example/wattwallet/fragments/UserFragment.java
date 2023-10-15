@@ -63,6 +63,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         tvIncome = view.findViewById(R.id.tvIncome);
         tvPower = view.findViewById(R.id.tvPower);
 
+
         user.fetchInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {

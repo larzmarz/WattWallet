@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_user:
                         fragment = getOrCreateFragment(UserFragment.class, "UserFragment");
+                        if (getSupportActionBar() != null) {
+                            getSupportActionBar().hide();
+                        }
                         if (fragment.getArguments() == null) {
                             Bundle args = new Bundle();
                             args.putParcelable("currentUser", ParseUser.getCurrentUser()); // Assumes ParseUser is Parcelable; adjust as needed.
