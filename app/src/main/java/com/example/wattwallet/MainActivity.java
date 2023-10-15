@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     MoneyFragment moneyfragment = new MoneyFragment();
     HomeFragment homeFragment = new HomeFragment();
-    UserFragment userFragment = new UserFragment(ParseUser.getCurrentUser());
+    UserFragment userFragment = new UserFragment(/*ParseUser.getCurrentUser()*/);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
