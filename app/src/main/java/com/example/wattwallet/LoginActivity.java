@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btLogin = findViewById(R.id.btLogin);
         btSignup = findViewById(R.id.btSignup);
+
         // activate login button
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
