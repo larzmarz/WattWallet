@@ -19,8 +19,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import com.example.wattwallet.databinding.ActivityMainBinding;
 import com.parse.ParseUser;
 
 import android.view.Menu;
@@ -31,41 +29,55 @@ public class MainActivity extends AppCompatActivity {
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
-    MoneyFragment moneyfragment = new MoneyFragment();
-    HomeFragment homeFragment = new HomeFragment();
-    UserFragment userFragment = new UserFragment(ParseUser.getCurrentUser());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //attaching variables to their respective views
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        //setting click listeners
-        bottomNavigationView.setOnNavigationItemSelectedListener( new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
-                    //assigns fragments to their respective xmls
-                    //home fragment
                     case R.id.action_home:
-                        fragment = homeFragment;
+                        fragment = getOrCreateFragment(HomeFragment.class, "HomeFragment");
                         break;
-                    //user fragment
                     case R.id.action_user:
-                        fragment = userFragment;
+                        fragment = getOrCreateFragment(UserFragment.class, "UserFragment");
+                        if (fragment.getArguments() == null) {
+                            Bundle args = new Bundle();
+                            args.putParcelable("currentUser", ParseUser.getCurrentUser()); // Assumes ParseUser is Parcelable; adjust as needed.
+                            fragment.setArguments(args);
+                        }
                         break;
-                    //money fragment
                     case R.id.action_money:
                     default:
-                        fragment =moneyfragment;
+                        fragment = getOrCreateFragment(MoneyFragment.class, "MoneyFragment");
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        if (savedInstanceState == null) {
+            // Load default fragment when activity is first created
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+        }
+    }
+
+    private <T extends Fragment> T getOrCreateFragment(Class<T> fragmentClass, String tag) {
+        Fragment fragment = fragmentManager.findFragmentByTag(tag);
+        if (fragment == null) {
+            try {
+                fragment = fragmentClass.newInstance();
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return (T) fragment;
     }
 }

@@ -5,36 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvPowerText2"
-        android:layout_width="162dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="168dp"
-        android:text="Income Generated"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="15dp"
-        app:fontFamily="sans-serif-light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-    <TextView
-        android:id="@+id/tvPowerText"
-        android:layout_width="162dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="60dp"
-        android:text="All Time Statistics"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="15dp"
-        app:fontFamily="sans-serif-light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
     <ImageView
         android:id="@+id/ivProfilePhoto"
         android:layout_width="186dp"
@@ -48,9 +18,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="99dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="584dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvName"
@@ -68,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivProfilePhoto" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvAlltime"
         android:layout_width="186dp"
         android:layout_height="36dp"
         android:layout_marginTop="11dp"
@@ -80,6 +52,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvPower"
+        android:layout_width="153dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPowerText" />
+
+    <TextView
+        android:id="@+id/tvPowerText"
+        android:layout_width="162dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="68dp"
+        android:text="Power Generated"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvIncomeText"
+        android:layout_width="162dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="156dp"
+        android:text="Income Generated"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvIncome"
+        android:layout_width="153dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIncomeText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

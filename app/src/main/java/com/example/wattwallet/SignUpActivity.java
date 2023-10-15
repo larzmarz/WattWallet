@@ -3,6 +3,8 @@ package com.example.wattwallet;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.parse.SignUpCallback;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
